@@ -207,3 +207,113 @@
     width:100%;
   }
 }
+/* ===== BARBOZA NUTRITION FOOTER ===== */
+
+.footer-content{
+  max-width:1000px;
+  margin:0 auto;
+}
+
+.footer-title{
+  display:block;
+  font-family:Manrope,sans-serif;
+  font-size:16px;
+  letter-spacing:.08em;
+  color:#fff;
+}
+
+.footer-disclaimer{
+  max-width:800px;
+  margin:16px auto 0;
+  font-size:10px;
+  line-height:1.7;
+  color:#9c918a;
+}
+
+.footer-social{
+  margin-top:34px;
+  padding-top:30px;
+  border-top:1px solid rgba(255,255,255,.10);
+}
+
+.footer-social strong{
+  display:block;
+  font-family:Manrope,sans-serif;
+  font-size:14px;
+  letter-spacing:.06em;
+  color:#fff;
+}
+
+.footer-social p{
+  margin:8px auto 16px;
+  font-size:11px;
+  color:#9c918a;
+}
+
+.social-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:42px;
+  height:42px;
+  padding:0;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:50%;
+  color:#fff;
+  transition:.2s ease;
+}
+
+.social-button svg{
+  width:20px;
+  height:20px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.8;
+}
+
+.social-button:hover{
+  background:#fff;
+  color:#1c1714;
+  transform:translateY(-2px);
+}
+
+.barboza-footer-brand{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:34px;
+  padding-top:30px;
+  border-top:1px solid rgba(255,255,255,.10);
+}
+
+.barboza-footer-brand img{
+  display:block;
+  width:150px;
+  max-width:150px;
+  height:auto;
+  object-fit:contain;
+}
+
+.footer-copyright{
+  display:block;
+  margin-top:28px;
+  color:#756c66;
+  font-size:10px;
+}
+
+@media(max-width:560px){
+  .barboza-footer-brand img{
+  width:130px;
+  max-width:130px;
+}
+
+  .footer-social{
+    margin-top:28px;
+    padding-top:26px;
+  }
+
+  .barboza-footer-brand{
+    margin-top:28px;
+    padding-top:26px;
+  }
+}
