@@ -143,5 +143,157 @@
   </div>
 </footer>
 <div class="sticky"><div><small>LANÇAMENTO</small><b>R$37</b></div><a class="checkout" href="#">QUERO ACESSAR</a></div>
+  
+<style>
+  .nutrition-legal-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 20px;
+    background: #101010;
+  }
+  .nutrition-legal-links a {
+    color: #e5bc63;
+    font-size: 13px;
+  }
+  .nutrition-cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    max-width: 660px;
+    margin: auto;
+    padding: 22px;
+    background: #181818;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 12px;
+    z-index: 9999;
+    box-shadow: 0 8px 35px rgba(0,0,0,.45);
+    font-family: Arial, sans-serif;
+  }
+  .nutrition-cookie-banner[hidden],
+  #nutrition-cookie-settings[hidden] {
+    display: none !important;
+  }
+  .nutrition-cookie-banner p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 12px 0;
+  }
+  .nutrition-cookie-banner a {
+    color: #e5bc63;
+  }
+  .nutrition-cookie-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .nutrition-cookie-actions button,
+  #nutrition-cookie-settings {
+    padding: 11px 16px;
+    border: 1px solid #d4aa55;
+    border-radius: 6px;
+    background: #d4aa55;
+    color: #111;
+    cursor: pointer;
+    font-weight: 700;
+  }
+  .nutrition-cookie-actions .reject {
+    background: transparent;
+    color: #fff;
+  }
+  #nutrition-cookie-settings {
+    position: fixed;
+    bottom: 12px;
+    left: 12px;
+    z-index: 9998;
+    font-size: 12px;
+  }
+</style>
+
+<nav class="nutrition-legal-links" aria-label="Documentos legais">
+  <a href="termos-de-uso.html">Termos de Uso</a>
+  <a href="politica-de-privacidade.html">Política de Privacidade</a>
+  <a href="politica-de-cookies.html">Política de Cookies</a>
+</nav>
+
+<div id="nutrition-cookie-banner"
+     class="nutrition-cookie-banner"
+     role="dialog"
+     aria-label="Preferências de cookies"
+     hidden>
+  <strong>SUA PRIVACIDADE IMPORTA</strong>
+  <p>
+    Utilizamos recursos essenciais para o funcionamento deste site.
+    Com sua autorização, poderemos utilizar cookies de análise
+    e publicidade para compreender a navegação e melhorar nossas campanhas.
+  </p>
+  <p>
+    <a href="politica-de-privacidade.html">Política de Privacidade</a> ·
+    <a href="politica-de-cookies.html">Política de Cookies</a> ·
+    <a href="termos-de-uso.html">Termos de Uso</a>
+  </p>
+  <div class="nutrition-cookie-actions">
+    <button type="button" id="nutrition-accept">
+      Aceitar cookies opcionais
+    </button>
+    <button type="button" id="nutrition-reject" class="reject">
+      Recusar cookies opcionais
+    </button>
+  </div>
+</div>
+
+<button type="button" id="nutrition-cookie-settings" hidden>
+  Preferências de cookies
+</button>
+
+<script>
+(function () {
+  const key = "barboza-nutrition-cookie-consent";
+  const banner = document.getElementById("nutrition-cookie-banner");
+  const settings = document.getElementById("nutrition-cookie-settings");
+
+  function showPreferences() {
+    banner.hidden = false;
+    settings.hidden = true;
+  }
+
+  function savePreference(value) {
+    try {
+      localStorage.setItem(key, value);
+    } catch (error) {}
+    banner.hidden = true;
+    settings.hidden = false;
+  }
+
+  document.getElementById("nutrition-accept")
+    .addEventListener("click", function () {
+      savePreference("accepted");
+    });
+
+  document.getElementById("nutrition-reject")
+    .addEventListener("click", function () {
+      savePreference("rejected");
+    });
+
+  settings.addEventListener("click", showPreferences);
+
+  let preference = null;
+  try {
+    preference = localStorage.getItem(key);
+  } catch (error) {}
+
+  if (preference === "accepted" || preference === "rejected") {
+    banner.hidden = true;
+    settings.hidden = false;
+  } else {
+    showPreferences();
+  }
+})();
+</script>
+
 <script src="script.js"></script>
 </body></html>
